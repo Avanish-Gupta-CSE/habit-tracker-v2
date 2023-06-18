@@ -1,0 +1,38 @@
+.habit-tile {
+  width: 15rem;
+  height: 12rem;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.trash-icon {
+  color: red;
+}
+.habit-tile h1 {
+  cursor: pointer;
+}
+
+.action-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  font-size: 1.4rem;
+}
+
+.action-icons:hover {
+  cursor: pointer;
+}
+
+.archieve-page-btn {
+  padding: 0.5rem 1rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
