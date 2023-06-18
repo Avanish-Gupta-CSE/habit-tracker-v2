@@ -28,6 +28,13 @@ export const HabitModal = () => {
     }
     setEditingHabitId(null);
     setOpenHabitModal((prev) => !prev);
+
+    const habitTiles = document.querySelectorAll('.habit-tile');
+
+habitTiles.forEach((tile) => {
+  const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+  tile.style.backgroundColor = randomColor;
+});
   };
 
   return (
