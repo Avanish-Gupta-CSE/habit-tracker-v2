@@ -1,10 +1,17 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useState } from "react";
 import { habits } from "../data/data";
 
 export const HabitContext = createContext();
 
 const initialState = {
   habits: habits,
+  habitDetails: {
+    name: "",
+    repeat: "",
+    goal: "",
+    timeOfDay: "",
+    startDate: "",
+  },
 };
 
 const reducerFunc = (state, { type, payload }) => {
@@ -23,6 +30,16 @@ const reducerFunc = (state, { type, payload }) => {
         ...state,
         habits: state.habits.filter((habit) => habit.id !== payload.id),
       };
+    case "ADD_HABIT_DETAILS":
+      return {
+        ...state,
+        habitDetails: { ...state.habitDetails, [payload.name]: payload.value },
+      };
+    case "ADD_HABIT":
+      return {
+        ...state,
+        habits: [...state.habits, payload],
+      };
     default:
       return state;
   }
@@ -30,10 +47,19 @@ const reducerFunc = (state, { type, payload }) => {
 
 export const HabitProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFunc, initialState);
+  const [openHabitModal, setOpenHabitModal] = useState(false);
 
   const alreadyArchieved = (habit) => habit.archieved;
   return (
-    <HabitContext.Provider value={{ state, dispatch, alreadyArchieved }}>
+    <HabitContext.Provider
+      value={{
+        state,
+        dispatch,
+        alreadyArchieved,
+        openHabitModal,
+        setOpenHabitModal,
+      }}
+    >
       {children}
     </HabitContext.Provider>
   );

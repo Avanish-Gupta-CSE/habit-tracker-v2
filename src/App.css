@@ -9,6 +9,7 @@
 
 .home {
   padding: 2rem;
+  position: relative;
 }
 
 .home .title {
@@ -20,4 +21,14 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background-color: rgba(0, 0, 0, 0.5);
 }
