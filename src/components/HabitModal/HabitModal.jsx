@@ -20,6 +20,15 @@ export const HabitModal = () => {
     event.preventDefault();
     dispatch({ type: "ADD_HABIT", payload: { ...habitDetails, id: uuid() } });
     setOpenHabitModal((prev) => !prev);
+
+    // JavaScript code to add random color to each habit-tile
+    const habitTiles = document.querySelectorAll('.habit-tile');
+
+    habitTiles.forEach((tile) => {
+    const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+    tile.style.backgroundColor = randomColor;
+});
+
   };
 
   return (

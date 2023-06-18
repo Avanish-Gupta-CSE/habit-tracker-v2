@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Poppins:wght@400;500&display=swap");
-
+/* 
 * {
   box-sizing: border-box;
   padding: 0;
@@ -21,6 +21,88 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background-color: rgba(0, 0, 0, 0.5);
+} */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.home {
+  padding: 2rem;
+  position: relative;
+  background-color: #222222;
+}
+
+.home .title {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #ffcc00;
+  font-size: 2rem;
+}
+
+.habit-tiles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.habit-tile {
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+  margin: 1rem;
+  flex: 0 0 calc(33.33% - 2rem);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.habit-tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.habit-tile.archived {
+  opacity: 0.5;
+}
+
+.habit-tile.completed {
+  background-color: #157e3e;
+}
+
+.habit-tile.in-progress {
+  background-color: #ffa500;
+}
+
+.habit-tile .name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.habit-tile .details {
+  font-size: 0.9rem;
+  color: #cccccc;
 }
 
 .modal-container {

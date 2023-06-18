@@ -1,4 +1,4 @@
-.habit-form {
+/* .habit-form {
   width: 30rem;
   border: 1px solid;
   padding: 1rem;
@@ -26,4 +26,70 @@
 
 .action-btns {
   margin-top: 1rem;
+} */
+.habit-form {
+  width: 30rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 5px;
+  background-color: #222222;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.habit-form form {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.adjacent-field {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.adjacent-field button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.adjacent-field button:hover {
+  background-color: #45a049;
+}
+
+.action-btns {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.action-btns button {
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.action-btns button:hover {
+  background-color: #45a049;
+}
+
+.action-btns button.cancel {
+  background-color: #f44336;
+}
+
+.action-btns button.cancel:hover {
+  background-color: #d32f2f;
 }
