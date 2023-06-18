@@ -6,6 +6,7 @@ export const HabitContext = createContext();
 const initialState = {
   habits: habits,
   habitDetails: {
+    id: "",
     name: "",
     repeat: "",
     goal: "",
@@ -40,6 +41,15 @@ const reducerFunc = (state, { type, payload }) => {
         ...state,
         habits: [...state.habits, payload],
       };
+    case "EDIT_HABIT_DETAILS":
+      return { ...state, habitDetails: payload };
+    case "EDIT_HABIT":
+      return {
+        ...state,
+        habits: state.habits.map((habit) =>
+          habit.id === payload.id ? { ...payload } : habit
+        ),
+      };
     default:
       return state;
   }
@@ -48,6 +58,7 @@ const reducerFunc = (state, { type, payload }) => {
 export const HabitProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFunc, initialState);
   const [openHabitModal, setOpenHabitModal] = useState(false);
+  const [editingHabitId, setEditingHabitId] = useState(null);
 
   const alreadyArchieved = (habit) => habit.archieved;
   return (
@@ -58,6 +69,8 @@ export const HabitProvider = ({ children }) => {
         alreadyArchieved,
         openHabitModal,
         setOpenHabitModal,
+        editingHabitId,
+        setEditingHabitId,
       }}
     >
       {children}
